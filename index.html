@@ -237,16 +237,69 @@
       background: var(--border);
     }
 
+    /* ── HERO PHOTO ── */
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero-photo {
+      position: relative;
+    }
+
+    .hero-photo img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 16px;
+      display: block;
+    }
+
+    .hero-photo::before {
+      content: '';
+      position: absolute;
+      inset: -8px -8px 8px 8px;
+      border: 2px solid var(--accent);
+      border-radius: 20px;
+      opacity: 0.3;
+      z-index: -1;
+    }
+
+    @media (max-width: 760px) {
+      .hero-layout {
+        grid-template-columns: 1fr;
+      }
+      .hero-photo {
+        order: -1;
+      }
+      .hero-photo img {
+        height: 320px;
+        object-position: center 20%;
+      }
+    }
+
     /* ── ABOUT ── */
     .about-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 260px 1fr;
       gap: 48px;
       align-items: start;
     }
 
     @media (max-width: 640px) {
       .about-grid { grid-template-columns: 1fr; }
+    }
+
+    .about-photo img {
+      width: 100%;
+      height: 360px;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 14px;
+      display: block;
     }
 
     .about-text h2 {
@@ -553,41 +606,48 @@
   <!-- HERO -->
   <div class="hero">
     <div class="hero-inner">
-      <div class="hero-tag">
-        <i data-lucide="cross" style="width:13px;height:13px;"></i>
-        Educator · Wife · Mother · Follower of Christ
-      </div>
-      <h1>Teaching with <em>purpose,</em><br>leading with heart.</h1>
-      <p class="hero-desc">
-        Elementary educator with 13 years of classroom experience across two continents — passionate about nurturing students in faith, knowledge, and community.
-      </p>
-      <div class="hero-stats">
-        <div class="stat">
-          <span class="stat-num">13</span>
-          <span class="stat-label">Years Teaching</span>
+      <div class="hero-layout">
+        <div>
+          <div class="hero-tag">
+            <i data-lucide="cross" style="width:13px;height:13px;"></i>
+            Educator · Wife · Mother · Follower of Christ
+          </div>
+          <h1>Teaching with <em>purpose,</em><br>leading with heart.</h1>
+          <p class="hero-desc">
+            Elementary educator with 13 years of classroom experience across two continents — passionate about nurturing students in faith, knowledge, and community.
+          </p>
+          <div class="hero-stats">
+            <div class="stat">
+              <span class="stat-num">13</span>
+              <span class="stat-label">Years Teaching</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">3</span>
+              <span class="stat-label">Countries</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">K–12</span>
+              <span class="stat-label">Grade Range</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">IB</span>
+              <span class="stat-label">Certified Program</span>
+            </div>
+          </div>
+          <div class="hero-cta">
+            <a href="#experience" class="btn btn-primary">
+              <i data-lucide="briefcase" style="width:16px;height:16px;"></i>
+              View Experience
+            </a>
+            <a href="#contact" class="btn btn-secondary">
+              <i data-lucide="mail" style="width:16px;height:16px;"></i>
+              Get in Touch
+            </a>
+          </div>
         </div>
-        <div class="stat">
-          <span class="stat-num">3</span>
-          <span class="stat-label">Countries</span>
+        <div class="hero-photo">
+          <img src="/static/img/headshot.jpg" alt="Kendal M. Thibault" />
         </div>
-        <div class="stat">
-          <span class="stat-num">K–12</span>
-          <span class="stat-label">Grade Range</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num">IB</span>
-          <span class="stat-label">Certified Program</span>
-        </div>
-      </div>
-      <div class="hero-cta">
-        <a href="#experience" class="btn btn-primary">
-          <i data-lucide="briefcase" style="width:16px;height:16px;"></i>
-          View Experience
-        </a>
-        <a href="#contact" class="btn btn-secondary">
-          <i data-lucide="mail" style="width:16px;height:16px;"></i>
-          Get in Touch
-        </a>
       </div>
     </div>
   </div>
@@ -601,7 +661,10 @@
       About Me
     </div>
     <div class="about-grid">
-      <div class="about-text">
+      <div class="about-photo">
+        <img src="/static/img/outdoors.jpg" alt="Kendal outdoors in Washington" />
+      </div>
+      <div>
         <h2>A life shaped by faith, family, and the classroom.</h2>
         <p>
           I am a Christian wife and mother whose calling has taken me from elementary classrooms in Indonesia to the mountains of Washington State. For over a decade I have taught, mentored, directed, and coached — always with the conviction that every child deserves to be seen, challenged, and encouraged.
@@ -849,23 +912,26 @@
 
   <!-- CONTACT -->
   <section id="contact" class="fade-in">
-    <div class="contact-box">
-      <h2>Let's connect.</h2>
-      <p>I'd love to hear from prospective schools, administrators, or anyone who shares a passion for education and community.</p>
-      <div class="contact-links">
-        <a href="mailto:thibault.kendal@protonmail.com" class="contact-link">
-          <i data-lucide="mail" style="width:16px;height:16px;"></i>
-          thibault.kendal@protonmail.com
-        </a>
-        <a href="tel:+12532056889" class="contact-link">
-          <i data-lucide="phone" style="width:16px;height:16px;"></i>
-          +1 (253) 205-6889
-        </a>
-        <a href="#" class="contact-link">
-          <i data-lucide="map-pin" style="width:16px;height:16px;"></i>
-          Cashmere, WA 98815
-        </a>
+    <div class="contact-box" style="display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;">
+      <div>
+        <h2>Let's connect.</h2>
+        <p>I'd love to hear from prospective schools, administrators, or anyone who shares a passion for education and community.</p>
+        <div class="contact-links">
+          <a href="mailto:thibault.kendal@protonmail.com" class="contact-link">
+            <i data-lucide="mail" style="width:16px;height:16px;"></i>
+            thibault.kendal@protonmail.com
+          </a>
+          <a href="tel:+12532056889" class="contact-link">
+            <i data-lucide="phone" style="width:16px;height:16px;"></i>
+            +1 (253) 205-6889
+          </a>
+          <a href="#" class="contact-link">
+            <i data-lucide="map-pin" style="width:16px;height:16px;"></i>
+            Cashmere, WA 98815
+          </a>
+        </div>
       </div>
+      <img src="/static/img/casual.jpg" alt="Kendal Thibault" style="width:200px;height:280px;object-fit:cover;object-position:center top;border-radius:12px;flex-shrink:0;" />
     </div>
   </section>
 
