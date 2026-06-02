@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kendal M. Thibault — Educator & Leader</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    :root {
+      --ink: #1a1a1a;
+      --ink-muted: #5c5c5c;
+      --ink-light: #8a8a8a;
+      --surface: #faf9f7;
+      --surface-alt: #f2efe9;
+      --border: #e5e0d8;
+      --accent: #6b7c5c;
+      --accent-light: #e8eee1;
+      --accent-warm: #c4956a;
+      --white: #ffffff;
+      --max-w: 860px;
+      --section-gap: 80px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--surface);
+      color: var(--ink);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(250, 249, 247, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: 'Lora', serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink-muted);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 100px 24px 60px;
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+
+    .hero-inner {
+      width: 100%;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent-light);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 32px;
+    }
+
+    .hero h1 {
+      font-family: 'Lora', serif;
+      font-size: clamp(40px, 8vw, 72px);
+      font-weight: 600;
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 24px;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--accent-warm);
+    }
+
+    .hero-desc {
+      font-size: 18px;
+      font-weight: 300;
+      color: var(--ink-muted);
+      max-width: 520px;
+      line-height: 1.8;
+      margin-bottom: 40px;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-bottom: 44px;
+    }
+
+    .stat {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stat-num {
+      font-family: 'Lora', serif;
+      font-size: 36px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--ink-light);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 24px;
+      font-size: 14px;
+      font-weight: 500;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background: #5a6b4c;
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: var(--white);
+      color: var(--ink);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: var(--surface-alt);
+      transform: translateY(-1px);
+    }
+
+    /* ── DIVIDER ── */
+    .section-divider {
+      width: 100%;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 24px;
+      border: none;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── SECTION ── */
+    section {
+      padding: var(--section-gap) 24px;
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 40px;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ── ABOUT ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    @media (max-width: 640px) {
+      .about-grid { grid-template-columns: 1fr; }
+    }
+
+    .about-text h2 {
+      font-family: 'Lora', serif;
+      font-size: 32px;
+      font-weight: 600;
+      line-height: 1.25;
+      margin-bottom: 20px;
+      color: var(--ink);
+    }
+
+    .about-text p {
+      font-size: 15px;
+      color: var(--ink-muted);
+      line-height: 1.85;
+      margin-bottom: 16px;
+    }
+
+    .values-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .value-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 16px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+
+    .value-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--accent-light);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--accent);
+    }
+
+    .value-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 3px;
+    }
+
+    .value-desc {
+      font-size: 13px;
+      color: var(--ink-muted);
+      line-height: 1.6;
+    }
+
+    /* ── EXPERIENCE ── */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 32px;
+      padding: 32px 0;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+
+    .timeline-item:last-child {
+      border-bottom: none;
+    }
+
+    @media (max-width: 580px) {
+      .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+    }
+
+    .timeline-meta {
+      padding-top: 4px;
+    }
+
+    .timeline-date {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--ink-light);
+      letter-spacing: 0.02em;
+    }
+
+    .timeline-location {
+      font-size: 11px;
+      color: var(--ink-light);
+      margin-top: 4px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .timeline-content .role {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .timeline-content .org {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--accent-warm);
+      margin-bottom: 12px;
+    }
+
+    .timeline-content ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .timeline-content ul li {
+      font-size: 13.5px;
+      color: var(--ink-muted);
+      padding-left: 16px;
+      position: relative;
+      line-height: 1.65;
+    }
+
+    .timeline-content ul li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11px;
+      font-weight: 500;
+      background: var(--accent-light);
+      color: var(--accent);
+      padding: 3px 10px;
+      border-radius: 100px;
+      margin-bottom: 10px;
+    }
+
+    /* ── EDUCATION ── */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .edu-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    .edu-card .year {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--ink-light);
+      margin-bottom: 8px;
+    }
+
+    .edu-card .degree {
+      font-family: 'Lora', serif;
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+
+    .edu-card .school {
+      font-size: 14px;
+      color: var(--accent-warm);
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    .edu-card .details {
+      font-size: 13px;
+      color: var(--ink-muted);
+      line-height: 1.6;
+    }
+
+    /* ── CONTACT ── */
+    .contact-box {
+      background: var(--ink);
+      border-radius: 16px;
+      padding: 56px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-box::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(107, 124, 92, 0.3) 0%, transparent 70%);
+    }
+
+    .contact-box * { position: relative; }
+
+    .contact-box h2 {
+      font-family: 'Lora', serif;
+      font-size: 36px;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .contact-box p {
+      font-size: 15px;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 36px;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 22px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 8px;
+      color: var(--white);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .contact-link:hover {
+      background: rgba(255,255,255,0.18);
+      transform: translateY(-1px);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 13px;
+      color: var(--ink-light);
+      border-top: 1px solid var(--border);
+    }
+
+    footer span {
+      color: var(--accent-warm);
+    }
+
+    /* ── SCROLL ANIMATION ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .fade-in { opacity: 1; transform: none; transition: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">Kendal M. Thibault</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-tag">
+        <i data-lucide="cross" style="width:13px;height:13px;"></i>
+        Educator · Wife · Mother · Follower of Christ
+      </div>
+      <h1>Teaching with <em>purpose,</em><br>leading with heart.</h1>
+      <p class="hero-desc">
+        Elementary educator with 13 years of classroom experience across two continents — passionate about nurturing students in faith, knowledge, and community.
+      </p>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">13</span>
+          <span class="stat-label">Years Teaching</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">3</span>
+          <span class="stat-label">Countries</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">K–12</span>
+          <span class="stat-label">Grade Range</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">IB</span>
+          <span class="stat-label">Certified Program</span>
+        </div>
+      </div>
+      <div class="hero-cta">
+        <a href="#experience" class="btn btn-primary">
+          <i data-lucide="briefcase" style="width:16px;height:16px;"></i>
+          View Experience
+        </a>
+        <a href="#contact" class="btn btn-secondary">
+          <i data-lucide="mail" style="width:16px;height:16px;"></i>
+          Get in Touch
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <hr class="section-divider" />
+
+  <!-- ABOUT -->
+  <section id="about" class="fade-in">
+    <div class="section-label">
+      <i data-lucide="user" style="width:14px;height:14px;"></i>
+      About Me
+    </div>
+    <div class="about-grid">
+      <div class="about-text">
+        <h2>A life shaped by faith, family, and the classroom.</h2>
+        <p>
+          I am a Christian wife and mother whose calling has taken me from elementary classrooms in Indonesia to the mountains of Washington State. For over a decade I have taught, mentored, directed, and coached — always with the conviction that every child deserves to be seen, challenged, and encouraged.
+        </p>
+        <p>
+          My background spans International Baccalaureate curriculum, Biblical Studies, drama direction, fitness leadership, and substitute teaching across every grade level. I bring the same energy, warmth, and professionalism to a kindergarten circle time as I do to a high school drama rehearsal.
+        </p>
+        <p>
+          Currently pursuing my Washington State Teaching Certificate, I am excited to step into a full-time classroom role where I can continue building relationships and cultivating a love of learning.
+        </p>
+      </div>
+      <div class="values-list">
+        <div class="value-item">
+          <div class="value-icon"><i data-lucide="shield-check" style="width:18px;height:18px;"></i></div>
+          <div>
+            <div class="value-title">Integrity</div>
+            <div class="value-desc">Doing what is morally right, being honest, and working hard to do my very best — always.</div>
+          </div>
+        </div>
+        <div class="value-item">
+          <div class="value-icon"><i data-lucide="globe" style="width:18px;height:18px;"></i></div>
+          <div>
+            <div class="value-title">Open-mindedness</div>
+            <div class="value-desc">Listening to different perspectives and finding common ground across cultures and backgrounds.</div>
+          </div>
+        </div>
+        <div class="value-item">
+          <div class="value-icon"><i data-lucide="layout-dashboard" style="width:18px;height:18px;"></i></div>
+          <div>
+            <div class="value-title">Management</div>
+            <div class="value-desc">Organizing events and people, communicating effectively, and following through on plans.</div>
+          </div>
+        </div>
+        <div class="value-item">
+          <div class="value-icon"><i data-lucide="lightbulb" style="width:18px;height:18px;"></i></div>
+          <div>
+            <div class="value-title">Leadership</div>
+            <div class="value-desc">Teaching, mentoring, and encouraging peers and subordinates alike toward their best.</div>
+          </div>
+        </div>
+        <div class="value-item">
+          <div class="value-icon"><i data-lucide="users" style="width:18px;height:18px;"></i></div>
+          <div>
+            <div class="value-title">Teamwork</div>
+            <div class="value-desc">Collaborating well with others to produce outcomes that promote shared success.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="fade-in">
+    <div class="section-label">
+      <i data-lucide="briefcase" style="width:14px;height:14px;"></i>
+      Work Experience
+    </div>
+
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-meta">
+          <div class="timeline-date">Aug 2023 – Present</div>
+          <div class="timeline-location"><i data-lucide="map-pin" style="width:11px;height:11px;"></i> Wenatchee, WA</div>
+        </div>
+        <div class="timeline-content">
+          <div class="badge"><i data-lucide="star" style="width:11px;height:11px;"></i> Current Role</div>
+          <div class="role">Long-Term Substitute Teacher (5th Grade)</div>
+          <div class="org">The River Academy</div>
+          <ul>
+            <li>Providing full classroom instruction aligned to lesson plans and school procedures</li>
+            <li>Nurturing students in their faith, knowledge, and relationships with God and others</li>
+            <li>Shadowing the lead teacher to facilitate a smooth classroom transition as permanent teacher for the remainder of the school year</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-meta">
+          <div class="timeline-date">Dec 2022 – Present</div>
+          <div class="timeline-location"><i data-lucide="map-pin" style="width:11px;height:11px;"></i> Cashmere, WA</div>
+        </div>
+        <div class="timeline-content">
+          <div class="role">Substitute Teacher (K–12) & Assistant Drama Director</div>
+          <div class="org">Cashmere School District</div>
+          <ul>
+            <li>Maintaining order, consistency, and productivity in classrooms at every grade level</li>
+            <li>Assisted drama director with character development coaching for small groups and one-on-one sessions</li>
+            <li>Coordinated parent volunteers and managed administrative tasks for the Fall Play</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-meta">
+          <div class="timeline-date">Jul 2022 – Present</div>
+          <div class="timeline-location"><i data-lucide="map-pin" style="width:11px;height:11px;"></i> Leavenworth, WA</div>
+        </div>
+        <div class="timeline-content">
+          <div class="role">Venue Manager, Event Set-up & Bartending</div>
+          <div class="org">The Local Event Co.</div>
+          <ul>
+            <li>Executing event plans with attention to detail, creativity, and promptness</li>
+            <li>Facilitating clear communication between venue staff, clients, and guests</li>
+            <li>WA Food Worker Card and MAST permit holder</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-meta">
+          <div class="timeline-date">Sep 2021 – May 2022</div>
+          <div class="timeline-location"><i data-lucide="map-pin" style="width:11px;height:11px;"></i> WA, OR, CA, NV, AZ, NM, TX</div>
+        </div>
+        <div class="timeline-content">
+          <div class="role">REFIT® Certified Dance Fitness Instructor</div>
+          <div class="org">REFIT on the Road</div>
+          <ul>
+            <li>Completed certification through Waco, TX based fitness company REFIT®</li>
+            <li>Organized and taught in-person and online fitness classes while traveling full time across 7 states</li>
+            <li>Promoted classes at city parks, RV campgrounds, churches, and private residences</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-meta">
+          <div class="timeline-date">Aug 2018 – Mar 2020</div>
+          <div class="timeline-location"><i data-lucide="map-pin" style="width:11px;height:11px;"></i> Lippo Village, Indonesia</div>
+        </div>
+        <div class="timeline-content">
+          <div class="role">Drama Director (Grades 3–6)</div>
+          <div class="org">Sekolah Pelita Harapan</div>
+          <ul>
+            <li>Led drama committee in after school club and full musical productions</li>
+            <li>Managed both administrative and teaching aspects of productions</li>
+            <li>Productions: <em>A Not So Terrible Parable, A Heart to Change the World, A Little Princess, Fee Fi Fo Fum, In the Lap of the Gods</em></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-meta">
+          <div class="timeline-date">Jul 2015 – Jun 2020</div>
+          <div class="timeline-location"><i data-lucide="map-pin" style="width:11px;height:11px;"></i> Lippo Village, Indonesia</div>
+        </div>
+        <div class="timeline-content">
+          <div class="role">Elementary Teacher — 2nd Grade & Kindergarten</div>
+          <div class="org">Sekolah Pelita Harapan</div>
+          <ul>
+            <li>Taught English, Biblical Studies, Math, and Unit of Inquiry (IB program) for 5 years</li>
+            <li>Led morning fitness twice a week for 2nd–3rd graders, teachers, and parents</li>
+            <li>Led after school sewing & crafting program; assisted youth basketball coaching</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-meta">
+          <div class="timeline-date">Nov 2020 – Jun 2021</div>
+          <div class="timeline-location"><i data-lucide="map-pin" style="width:11px;height:11px;"></i> Leavenworth, WA</div>
+        </div>
+        <div class="timeline-content">
+          <div class="role">Hotel Receptionist</div>
+          <div class="org">Bavarian Lodge</div>
+          <ul>
+            <li>Managed reservations, check-ins, and guest requests with care and attention</li>
+            <li>Promoted within months; frequently commended for positive guest interactions</li>
+            <li>Assisted in higher-risk situations involving guests and law enforcement</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-meta">
+          <div class="timeline-date">Jul 2013 – Jun 2015</div>
+          <div class="timeline-location"><i data-lucide="map-pin" style="width:11px;height:11px;"></i> Kemang Village, Indonesia</div>
+        </div>
+        <div class="timeline-content">
+          <div class="role">Elementary Teacher — 3rd Grade</div>
+          <div class="org">Sekolah Pelita Harapan</div>
+          <ul>
+            <li>Taught English, Biblical Studies, Math, and Science for 2 years</li>
+            <li>Backstage manager for the school musical production of <em>Annie</em></li>
+            <li>Head coach for the middle school girls basketball team</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-meta">
+          <div class="timeline-date">Aug 2011 – May 2012</div>
+          <div class="timeline-location"><i data-lucide="map-pin" style="width:11px;height:11px;"></i> La Mirada, CA</div>
+        </div>
+        <div class="timeline-content">
+          <div class="role">Resident Assistant</div>
+          <div class="org">Biola University</div>
+          <ul>
+            <li>Directly responsible for the wellbeing of 30 female students on residential wing</li>
+            <li>Organized dorm events, upheld healthy lifestyles and proper conduct, and provided mild counseling</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <!-- EDUCATION -->
+  <section id="education" class="fade-in">
+    <div class="section-label">
+      <i data-lucide="graduation-cap" style="width:14px;height:14px;"></i>
+      Education & Certifications
+    </div>
+    <div class="edu-grid">
+
+      <div class="edu-card">
+        <div class="year">In Progress</div>
+        <div class="degree">Washington Teaching Certificate</div>
+        <div class="school">WA Office of Superintendent of Public Instruction</div>
+        <div class="details">Pending test results. Emergency Substitute Teacher Certificate issued November 2022.</div>
+      </div>
+
+      <div class="edu-card">
+        <div class="year">Graduated May 2013</div>
+        <div class="degree">Bachelor of Arts — Elementary Education</div>
+        <div class="school">Biola University, La Mirada, CA</div>
+        <div class="details">Emphasis in Intercultural Studies · Minor in Biblical Studies · California Teaching Credential · Student teaching in CA public schools and Indonesian private international school.</div>
+      </div>
+
+      <div class="edu-card">
+        <div class="year">Graduated June 2009</div>
+        <div class="degree">High School Diploma — IB Diploma Program</div>
+        <div class="school">Sekolah Pelita Harapan, Lippo Village, Indonesia</div>
+        <div class="details">International Baccalaureate Diploma recipient. K–12 Indonesian private international school.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <!-- CONTACT -->
+  <section id="contact" class="fade-in">
+    <div class="contact-box">
+      <h2>Let's connect.</h2>
+      <p>I'd love to hear from prospective schools, administrators, or anyone who shares a passion for education and community.</p>
+      <div class="contact-links">
+        <a href="mailto:thibault.kendal@protonmail.com" class="contact-link">
+          <i data-lucide="mail" style="width:16px;height:16px;"></i>
+          thibault.kendal@protonmail.com
+        </a>
+        <a href="tel:+12532056889" class="contact-link">
+          <i data-lucide="phone" style="width:16px;height:16px;"></i>
+          +1 (253) 205-6889
+        </a>
+        <a href="#" class="contact-link">
+          <i data-lucide="map-pin" style="width:16px;height:16px;"></i>
+          Cashmere, WA 98815
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>Kendal M. Thibault</span> &nbsp;·&nbsp; Educator &nbsp;·&nbsp; Cashmere, WA
+  </footer>
+
+  <script>
+    lucide.createIcons();
+
+    // Scroll fade-in
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
